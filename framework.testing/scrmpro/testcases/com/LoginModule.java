@@ -29,7 +29,7 @@ public class LoginModule extends LoginMethods{
 		Log.info("Click Login Button");
 		clickLogin();
 		
-		String exceptedResult ="http://demo2.scrmpro.com/Protected/MyDashboard.aspx";
+		String exceptedResult ="http:192.168.1.221:9972/Protected/MyDashboard.aspx";
 		String actual =driver.getCurrentUrl();
 		
 
