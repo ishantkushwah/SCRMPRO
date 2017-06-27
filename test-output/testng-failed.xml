@@ -3,14 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="scrmpro.testcases.com.LeadModule">
+      <class name="scrmpro.testcases.com.LoginModule">
         <methods>
-          <include name="createanDuplicateLead"/>
-          <include name="NavigateToLead"/>
-          <include name="CreateLeadforNewCustomer"/>
+          <include name="validLogin"/>
           <include name="launchBrowser"/>
         </methods>
-      </class> <!-- scrmpro.testcases.com.LeadModule -->
+      </class> <!-- scrmpro.testcases.com.LoginModule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
