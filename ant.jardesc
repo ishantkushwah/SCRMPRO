@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="C:/Users/ishan/Desktop/New folder/SCRMpro.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/SCRMPro/ant.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=SCRMPro/framework.developement&lt;scrmpro.common.com{SCRMPRO.java[SCRMPRO" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/SCRMPro/log.xml"/>
+        <javaElement handleIdentifier="=SCRMPro/framework.testing"/>
+        <folder path="/SCRMPro/test-output"/>
+        <file path="/SCRMPro/.project"/>
+        <file path="/SCRMPro/testng.xml"/>
+        <file path="/SCRMPro/logfile.log"/>
+        <javaElement handleIdentifier="=SCRMPro/framework.developement"/>
+        <folder path="/SCRMPro/SourceLocation"/>
+        <folder path="/SCRMPro/framework.sourcelocation"/>
+        <file path="/SCRMPro/.classpath"/>
+    </selectedElements>
+</jardesc>

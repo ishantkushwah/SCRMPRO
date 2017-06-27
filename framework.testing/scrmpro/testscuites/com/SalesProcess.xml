@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sanity Testing">
+<listeners>
+      <listener class-name="scrmpro.utility.com.CustomReporter" />
+  </listeners>
+<test name="Lead Process">
+<classes>
+<class name="scrmpro.testcases.com.LeadModule">
+<methods>
+<include name="NavigateToLead"></include>
+<include name="CreateLeadforNewCustomer"></include>
+<include name="Convertanonduplicatelead"></include>
+</methods>
+</class>
+</classes>
+</test>
+<test name="Opportunity Process">
+<classes>
+<class name="scrmpro.testcases.com.DealModule">
+<methods>
+<include name="createOpportunity"></include>
+</methods>
+</class>
+</classes>
+</test>
+<test name="QuoteProcess">
+<classes>
+<class name="scrmpro.testcases.com.QuoteModule">
+<methods>
+<include name="createQuote"></include>
+</methods>
+</class>
+</classes>
+</test>
+</suite>

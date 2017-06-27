@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Sanity Testing]">
+  <test name="Lead Sanity(failed)">
+    <classes>
+      <class name="scrmpro.testcases.com.LeadModule">
+        <methods>
+          <include name="NavigateToLead"/>
+          <include name="Convertanonduplicatelead"/>
+          <include name="CreateLeadforNewCustomer"/>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- scrmpro.testcases.com.LeadModule -->
+    </classes>
+  </test> <!-- Lead Sanity(failed) -->
+  <test name="TEST(failed)">
+    <classes>
+      <class name="scrmpro.testcases.com.DealModule">
+        <methods>
+          <include name="createOpportunity"/>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- scrmpro.testcases.com.DealModule -->
+    </classes>
+  </test> <!-- TEST(failed) -->
+</suite> <!-- Failed suite [Sanity Testing] -->
