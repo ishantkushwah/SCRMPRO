@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
  import org.openqa.selenium.WebDriver;
  import org.openqa.selenium.WebElement;
  import org.openqa.selenium.support.FindBy;
+ import scrmpro.pom.com.LeadPage;
  
  public class QuotePage extends OppPage{
  
@@ -19,10 +20,10 @@ import org.openqa.selenium.By;
  	@FindBy(id="lBtnQuotePage")
  	public static WebElement clk_Quote_tab;
  	
- 	@FindBy(id="//a[contains(@class,'btn-warning')]")
+ 	@FindBy(id="ContentPlaceHolder1_lBtnAddQuote")
  	public static WebElement clk_addnewbtn;
  	
- 	@FindBy(id="ContentPlaceHolder1_AddQuote_txtQuoteNumber")
+ 	@FindBy(id="ContentPlaceHolder1_AddQuote_TxtQuoteName")
  	public static WebElement entr_quote_name;
  	
  	//@FindBy(id="ContentPlaceHolder1_AddQuote_TxtQuoteNumber")
@@ -98,7 +99,7 @@ import org.openqa.selenium.By;
  	@FindBy(xpath="//*[@id='ProductTbl']/thead/tr[1]/td[1]")
  	public static WebElement clk_All_Product_chkbox;
  	
- 	@FindBy(id="ContentPlaceHolder1_AddQuote_lnkBtnBindProduct")
+ 	@FindBy(id="btnBindSelectedProducts")
  	public static WebElement clk_qLineItemBindbtn;
  	
  	@FindBy(id="@id=txtSearchPCat")
@@ -145,17 +146,10 @@ import org.openqa.selenium.By;
  	@FindBy(id="ContentPlaceHolder1_AddQuote_ddlCountry")
  	public static WebElement sel_country;
  	
+ 	
  	// Quote View,Edit and Delete
  	
- 	
- 	
- //	@FindBy(xpath="//*[@id='QuoteTbl']/tbody/tr/td[4]")
- //	public static WebElement clk_quoteList;
- 	
- 	
- //	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lvQuote_tdEditQuote_0")
- //	public static WebElement clk_edit_icon;
- 	
+ 
  	@FindBy(xpath="//div[@class='portlet-title-new']")
  	public static WebElement clk_ContarctInformation_accordion;
  	
@@ -173,18 +167,12 @@ import org.openqa.selenium.By;
  	
  	@FindBy(id="btnupload")
  	public static WebElement clk_upload_btn;
- 	
- //	@FindBy(xpath=".//*[@id='ContentPlaceHolder1_ViewQuote1_lvQuote_lnkbtnRemove_0']")
- //	public static WebElement clk_delete_Icon;
- 	
+
  	@FindBy(id="ContentPlaceHolder1_ViewQuote1_cbselAll")
  	public static WebElement Chk_all_quote;
  	
  	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lvQuote_cbCheckBox_0")
  	public static WebElement Chk_quote1;
- 	
- //	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lvQuote_cbCheckBox_1")
- //	public static WebElement chk_quote2;
  	
  	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lvQuote_tdName_0")	
  	public static WebElement clk_view_qName;
@@ -195,9 +183,6 @@ import org.openqa.selenium.By;
  	@FindBy(id="ContentPlaceHolder1_AddQuote_divRevisionHistory")
  	public static WebElement clk_review_hitory_accordion;
  	
- 	@FindBy(xpath="(//sup[Contains(@class,'collapse-new')]")
- 	public static WebElement clk_360view_accordion;
- 	
  	@FindBy(xpath=".//*[@id='ContentPlaceHolder1_AddQuote_divEmail']")
  	public static WebElement clk_email_accordion;
  	
@@ -206,33 +191,8 @@ import org.openqa.selenium.By;
  	
  	@FindBy(id="divOtherInformation")
  	public static WebElement clk_OtherInfo_accordion;
- 	 
  	
  	
- 	// More Actions and Tool
  	
- 	@FindBy(xpath="//a[contains(@class,'btn btn-primary dropdown-toggle')]")
- 	public static WebElement clk_moreaction_drpdwn;
- 	
- 	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lbkBtnCreateContract")
- 	public static WebElement sel_quote_convert;
- 	
- 	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lnkChangerOwner")
- 	public static WebElement sel_quote_changeowner;
- 	
- 	@FindBy(xpath="//div[4]/button")	
- 	public static WebElement sel_quote_massedit;
- 	
- 	@FindBy(id="ContentPlaceHolder1_ViewQuote1_lnkMassDelete")
- 	public static WebElement sel_quote_massdelete;
- 	
- 	@FindBy(id="lnkShareRecord")
- 	public static WebElement sel_quote_sharerecord;
- 	
- 	@FindBy(xpath="//div[5]/button")
- 	public static WebElement clk_tool_drpdwn;
- 	
- 	@FindBy(xpath=".//*[@id='ContentPlaceHolder1_ViewQuote1_liCustomView']/a")
- 	public static WebElement sel_quote_customView_drpdwn;
  	
  }

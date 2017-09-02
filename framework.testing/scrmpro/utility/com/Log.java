@@ -38,7 +38,14 @@ public class Log {
 	 
 		}
 	 
+	 
+	 
 		// Need to create these methods, so that they can be called  
+	 
+	 public static void trace(String message){
+	 
+	 Log.trace(message);
+}
 	 
 	 public static void info(String message) {
 	 
@@ -71,3 +78,24 @@ public class Log {
 
 }
 }
+
+
+//package org.apache.log4j;
+
+//public abstract class Log {
+//
+//  // Creation & retrieval methods:
+//  public abstract Logger getRootLogger();
+//  public abstract Logger getLogger(String name);
+//
+//  // printing methods:
+//  public abstract void trace(Object message);
+//  public abstract void debug(Object message);
+//  public abstract void info(Object message);
+//  public abstract void warn(Object message);
+//  public abstract void error(Object message);
+//  public abstract void fatal(Object message);
+//
+//  // generic printing method:
+//  public abstract void log(Level l, Object message);
+//}

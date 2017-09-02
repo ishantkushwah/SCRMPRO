@@ -30,6 +30,8 @@ import com.sun.jna.Function;
 
 public class CommonMethods extends Connectivity {
 
+	 
+
 	public void ImplicityWait(int timeinsec) {
 		driver.manage().timeouts().implicitlyWait(timeinsec, TimeUnit.SECONDS);
 	}
@@ -79,7 +81,7 @@ public class CommonMethods extends Connectivity {
 	public void uploadIage(WebElement e) {
 
 		WebElement fileInput = e;
-		fileInput.sendKeys("‪C:\\Users\\admin\\Desktop\\d1.pdf");
+		fileInput.sendKeys("‪C:\\Users\\shalini.s\\Desktop\\d1.pdf");
 
 	}
 

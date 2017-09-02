@@ -12,18 +12,18 @@ public class LeadExcel implements Property{
  public Object[][] getLoginDataForAllRoles() throws Exception {
  
   DataDrivenExcel userData = new DataDrivenExcel(
-    TestSheet, "LeadData");
+    TestSheet, "login");
  
   ArrayList<Object> dataList = new ArrayList<Object>();
  
-  int i = 2;// excluding header row
-  int totalRows = 2;
-  while (i < totalRows) {
+  int i = 0;// excluding header row
+  int totalRows = 1;
+  while (i <= totalRows) {
    System.out.println("loginToAppWithAllRoles : line : " + i);
  
-   Object[] dataLine = new Object[2];
+   Object[] dataLine = new Object[1];
    dataLine[0] = userData.getCell(i, 0);
-   dataLine[1] = userData.getCell(i, 1);
+  // dataLine[1] = userData.getCell(i, 1);
  
  
    dataList.add(dataLine);
@@ -46,19 +46,20 @@ public class LeadExcel implements Property{
  
   ArrayList<Object> dataList = new ArrayList<Object>();
  
-  int i = 5;// excluding header row
+  int i = 0;// excluding header row
   int totalRows = 1;
   while (i < totalRows) {
    System.out.println("loginToAppWithAllRoles : line : " + i);
  
-   Object[] dataLine = new Object[7];
+   Object[] dataLine = new Object[6];
    dataLine[0] = userData.getCell(i, 0);
    dataLine[1] = userData.getCell(i, 1);
    dataLine[2] = userData.getCell(i, 2);
    dataLine[3] = userData.getCell(i, 3);
    dataLine[4] = userData.getCell(i, 4);
    dataLine[5] = userData.getCell(i, 5);
-   dataLine[6] = userData.getCell(i, 6);
+  // userData.
+   
    
  
  

@@ -1,5 +1,6 @@
 package scrmpro.appmethods.com;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -156,7 +157,7 @@ public abstract class LeadMethods extends LoginMethods {
 		
 		driver.switchTo().alert().accept();
 	}
-
+/*
 	public void openaleadfromgrid(String title){
 		//*[@id='LeadTbl']/tbody/tr/td[4]
 	List<WebElement> list = driver.findElements(By.xpath(".//*[@id='LeadTbl']/tbody/tr/td[4]"));
@@ -165,7 +166,24 @@ public abstract class LeadMethods extends LoginMethods {
 			leadtitle.click();
 		}
 	}
+*/	
+	public void openaleadfromgrid(String Title, int i) {
+		 
+  	  String firstPath= ".//*[@id='LeadTbl']/tbody/tr[";
+	      String endPath= "]/td[4]"; 
+	      String  fullpath = firstPath +i+ endPath;
+	       List<String> newList =new ArrayList<>();
+	       List<WebElement> list = driver.findElements(By.xpath(".//*[@id='LeadTbl']/tbody/tr/td[4]"));
+	       for(int j=0; j < list.size(); j++)
+	       {
+	    	  newList.add(list.get(j).getText());
+	       } 
+	     	 if (newList.contains(Title)){
+	     		WebElement leadtitle = driver.findElement(By.xpath(fullpath));
+	     		leadtitle.click();	
+	     	 }
 	}
+
 	
 	public void clickDuplicateojbtn(){
 		

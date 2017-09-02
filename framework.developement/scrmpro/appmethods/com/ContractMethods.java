@@ -1,15 +1,10 @@
 package scrmpro.appmethods.com;
 
-import scrmpro.pom.com.AccountPage;
-import scrmpro.pom.com.ContractPage;
-import scrmpro.pom.com.QuotePage;
 
+import scrmpro.pom.com.ContractPage;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -25,52 +20,60 @@ public class ContractMethods extends LoginMethods  {
 	}
 	
 	public void selActiveOn(String date,String month,String year){
-		ContractPage.clk_ContractActiveOntab.click();
+		ContractPage. clk_ContractActiveOn.click();
 		 
    }
 	
 	public void selOppName(String OppName){
-	   new Select(ContractPage.Sel_opportunity).selectByVisibleText(OppName);
+	   new Select(ContractPage.sel_opp_drpdwn).selectByVisibleText(OppName);
 	}
 	
 	public void selIndustryName(String IndustryName){
-		new Select(ContractPage.Sel_industry).selectByVisibleText(IndustryName);
+		new Select(ContractPage.sel_industry_drpdwn).selectByVisibleText(IndustryName);
 	}
 
 	public void enterContractTitle(String QuoteName){
-		ContractPage.enter_title.sendKeys(QuoteName);
+		ContractPage.enter_title_txt.sendKeys(QuoteName);
 	}
 	
 	public void selContractStatus(String ContractStatus){
-		new Select(ContractPage.Sel_status).selectByVisibleText(ContractStatus);
+		new Select(ContractPage.sel_status_drpdwn).selectByVisibleText(ContractStatus);
 	}
 	
-	public void selBillingStartDate(String date,String month,String year){
-		ContractPage.Sel_billing_starts_on.click();
-		ContractPage.Sel_billing_starts_on.sendKeys(date,month,year);
-		ContractPage.Sel_billing_end_on.click();
-		ContractPage.Sel_billing_end_on.sendKeys(date,month,year);
-		ContractPage.Sel_expires_on.click();
-		ContractPage.Sel_expires_on.sendKeys(date,month,year);
-		ContractPage.Sel_cancel_on.click();
-		ContractPage.Sel_cancel_on.sendKeys(date,month,year);
+	public void selBillingStartDate(){
+		ContractPage.clk_billing_startsOn.click();
+		 
+	}
+	
+	public void selBillingendtDate(){
+		ContractPage.clk_billing_endOn.click();
+		 
+	}	
+	
+	public void selExpireDate(){
+		ContractPage.clk_expiresOn.click();
+	}
+	
+	public void selcanceldate(){
+		ContractPage.clk_cancelOn.click();
+		 
 	}
  
 	
 	public void selBillingCustomer(String BillingCustomer){
-		new Select(ContractPage.Sel_billing_customer).selectByVisibleText(BillingCustomer);
+		new Select(ContractPage.sel_billingCustomer_drpdwn).selectByVisibleText(BillingCustomer);
 	}
 	
 	public void selCurrency(String Currency){
-		new Select(ContractPage.Sel_currency).selectByVisibleText(Currency);
+		new Select(ContractPage.sel_currency_drpdwn).selectByVisibleText(Currency);
 	}
 	
 	public void selDepartmentName(String DepartmentName){
-		new Select(ContractPage.Sel_department).selectByVisibleText(DepartmentName);
+		new Select(ContractPage.sel_department_drpdwn).selectByVisibleText(DepartmentName);
 	}
 	
 	public void enterTermCondition(String TearmCondition){
-		ContractPage.enter_terms_and_condition.sendKeys(TearmCondition);
+		ContractPage.enter_termsCondition.sendKeys(TearmCondition);
 	}
 	
 	
@@ -94,13 +97,13 @@ public class ContractMethods extends LoginMethods  {
 		 ContractPage.enter_amount_to_pay.sendKeys(AmmountToPaye);
 	 }
 	 
-	 public void enterDueDate(String date,String month,String year){
-	      ContractPage.enter_due_on.click();  
-          ContractPage.enter_due_on.sendKeys(date,month,year);
+	 public void enterDueDate(){
+	      ContractPage.clk_dueOn.click();  
+           
      }
 	 
 	public void enterWorkAmmount(String WorkAmmount){
-		ContractPage.enter_work_amount.sendKeys(WorkAmmount);
+		ContractPage.enter_workAmount_txt.sendKeys(WorkAmmount);
 	}
 	 
 	// .//*[@id='m1']/tbody/tr[2]/td[12]
@@ -160,15 +163,15 @@ public class ContractMethods extends LoginMethods  {
 	}
 	
 	public void enterOrdQut(String qut){
-		ContractPage.enter_ordQut.sendKeys(qut);
+		ContractPage.enter_ordQut_txt.sendKeys(qut);
 	}
 	
 	public void enterTax(String Tax){
-		ContractPage.enter_taxes.sendKeys(Tax);
+		ContractPage.sel_taxes_drpdwn.sendKeys(Tax);
 	}
 	
 	public void enterDescription(String Description){
-		ContractPage.enter_description.sendKeys(Description);
+		ContractPage.enter_description_txt.sendKeys(Description);
 	}
 	
 	public void clkAddNewMilestoneBtn(){
@@ -184,50 +187,6 @@ public class ContractMethods extends LoginMethods  {
     }
 	
 	
-	/* @author ${Shalini Singh}
-	    * Method of Contract 360 view 
-	    * Date 3 Aug 2017
-	    */
-	
-	public void clk360viewAccordion(){
-		ContractPage.clk_360_view_accordion.click();
-	}
-	
-	public void clkLead360View(){
- 	    ContractPage.clk_360_view_lead_tab.click();
-	}
-	
-	public void clkAccount360view(){
-		ContractPage.clk_360_view_account_tab.click();
-	}
-	
-	public void clkOpportunity360View(){
- 	    ContractPage.clk_360_view_opp_tab.click();
-	}
-	
-	public void clkQuote360view(){
-		ContractPage.clk_360_view_quote_tab.click();
-	}
-	
-	public void clkContract360View(){
- 	    ContractPage.clk_360_view_contract_tab.click();
-	}
-	
-	public void clkInvoice360view(){
-		ContractPage.clk_360_view_invoice_tab.click();
-	}
-	
-	public void clkCase360view(){
-		ContractPage.clk_360_view_case_tab.click();
-	}
-	
-	public void clkCampaign360View(){
- 	    ContractPage.clk_360_view_campaign_tab.click();
-	}
-	
-	public void clkProduct360view(){
-		ContractPage.clk_360_view_product_tab.click();
-	}
 	
 	/* @author ${Shalini Singh}
 	    * Method of More Action and tools Contract module
@@ -253,97 +212,16 @@ public class ContractMethods extends LoginMethods  {
 	     		 
 	     	 }
 	    	} 
-	
- 	 
-	public void clkMoreActionDrpdwn(){
-		ContractPage.clk_more_actions.click();
-	}
-	
-	public void selFromMoreactions(String actionsName){
-		if(actionsName.equalsIgnoreCase("ChangeOwner")){
-		
-		new Select(ContractPage.sel_change_owner).selectByIndex(1);
-	}
-	 else{
-			
-		new Select(ContractPage.sel_share_record).selectByIndex(2);
-		}
-			
-	}
-	
-	// To shared record on basic of Reporting user, Group , Same level.
-	
-	
-	// .//*[@id='ddlUserList']/optgroup[]/option[]
-	
-	 public void selUser(String UserName,int i, int j){	
-	     	String firstPath= ".//*[@id='ddlUserList']/optgroup[";
-	        String SecondPath= "]/option["; 
-	        String endPath= "]";
-	       String  fullpath = firstPath +i+SecondPath+j+ endPath;
-	       List<String> newList =new ArrayList<>();
-	       List<WebElement> list = driver.findElements(By.xpath(".//*[@id='ddlUserList']/optgroup"));
-	       for(int k=0; k < list.size(); k++)
-	       {
-	    	  newList.add(list.get(k).getText());
-	       } 
-	     	 if (newList.contains(UserName)){
-	     		WebElement userName = driver.findElement(By.xpath(fullpath));
-	     		userName .click();	 
-	     		 
-	     	 }
-	    	} 
-	
-	
-	public void clkSharedbtn(){
-		ContractPage.clk_share_btn.click();
-	}
-	
-	public void clkUnsharedbtn(){
-		ContractPage.clk_unshare_btn.click();
-	}
-	
-	public void clkSharedCancelbtn(){
-		ContractPage.clk_shareRecord_cancel_btn.click();
-	}
-	
-	public void clkTooldrpdwn(){
-		ContractPage.clk_tools_drpdwn.click();
-	}
-	
-	
-	
+	 
  			
-    /* @author ${Shalini Singh}
-     * Method of Export functionality of Contract module
-     * Date 4 Aug 2017
-    */
-  
-    public void clkExportbtn(){
-	  ContractPage.clk_export_btn.click();
-   }
-    
-    public void clkAllExport(){
-    	ContractPage.clk_all_export.click();
-    }
-    
-    public void clkExportPdfbtn(){
-    	ContractPage.clk_export_pdf_btn.click();
-    }
-    
-    public void clkclkExportExcelbtn(){
-    	ContractPage.clk_export_excel_btn.click();
-    }
-    
-    public void clkclkExportcsvbtn(){
-    	ContractPage.clk_export_csv_btn.click();
-    }
+   
    
     /* @author ${Shalini Singh}
      * Method of view, edit, delete of Contract module
      * Date 4 Aug 2017
     */ 
     
+	 
     // .//*[@id='ContractTbl']/tbody/tr/td[4]
     
     public void clkAndOpenQuote(String contractName,int i){	
@@ -363,6 +241,7 @@ public class ContractMethods extends LoginMethods  {
      	 }
     	} 
     
+    
   // .//*[@id='ContractTbl']/tbody/tr[1]/td[2]
     
     public void clkAndeEditContract(String contractName,int i){	
@@ -380,6 +259,7 @@ public class ContractMethods extends LoginMethods  {
      		contractEditicon.click();	
      	 }
 	} 
+    
     
   //  .//*[@id='ContractTbl']/tbody/tr[1]/td[2]
     
@@ -417,7 +297,7 @@ public class ContractMethods extends LoginMethods  {
     }
     
     public void clkContactAccordion(){
-    	ContractPage.clk_contact_information_accordion.click();
+    	ContractPage.clk_contact_info_accordion.click();
     }
     
     public void AddContactbtn(){
@@ -440,6 +320,15 @@ public class ContractMethods extends LoginMethods  {
     	ContractPage.clk_send_mail_btn.click();
     }
     
+   public void Closedpopupwindow(){
+     	
+     	for (String winHandle : driver.getWindowHandles()) {
+     	    driver.switchTo().window(winHandle);  
+     	}
+     	
+     	  driver.close(); 
+     	  
+     	}
     public void clkRecentupdateAccordion(){
     	ContractPage.clk_recent_update_accordion.click();
     }

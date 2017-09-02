@@ -10,9 +10,7 @@ public interface LeadData extends Property{
 	String FirstName=common.FirstName();
 	String LastName=common.LastName();
 	String Mobile=common.MobileNumber();
-	String Priority="High";
-	String Status="Open";
-	
-	
+	//String Priority="High";
+	String Status="Approved";	
 
 }

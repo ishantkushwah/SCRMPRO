@@ -36,7 +36,7 @@ public class DealModule extends OppMethods{
 		clickProductLineicon();
 		
 		Log.info("Select Currency");
-		selectProductsCurrency();
+		selectProductsCurrency(3);
 		common.ImplicityWait(40);
 		
 		Assert.assertTrue(OppPage.chk_productone.isDisplayed(), "Failed: No Product Found");
@@ -50,7 +50,7 @@ public class DealModule extends OppMethods{
 		
 		common.ImplicityWait(20);
 		Log.info("PriceBook");
-		selectPriceBook();
+		selectPriceBook(1);
 		
 		Log.info("Select PriceType");
 		selectPriceType();

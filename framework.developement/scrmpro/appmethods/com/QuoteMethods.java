@@ -2,22 +2,31 @@ package scrmpro.appmethods.com;
   
 
  import scrmpro.pom.com.AccountPage;
- import scrmpro.pom.com.QuotePage;
+import scrmpro.pom.com.OppPage;
+import scrmpro.pom.com.QuotePage;
+
 
 import java.util.ArrayList;
 import java.util.List;
- import org.openqa.selenium.By;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
  import org.openqa.selenium.JavascriptExecutor;
  import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+
+import scrmpro.appmethods.com.LeadMethods;
  import org.openqa.selenium.WebElement;
  import org.openqa.selenium.support.ui.Select;
  
- public class QuoteMethod extends LoginMethods{
+ public abstract class QuoteMethods extends LeadMethods{
+	 
+	OppPage Opp = new OppPage(driver);
 
           /* @author ${Shalini Singh}
 	    * Methods of Add Quote module
 	    */ 
- 
+	  
  
      public void clkQuoteTab(){
  
@@ -28,7 +37,7 @@ import java.util.List;
         QuotePage.clk_addnewbtn.click();
     }
  
-      public void quoteName(String Name){
+      public void enterQuoteName(String Name){
          QuotePage.entr_quote_name.sendKeys(Name);
     }
  
@@ -57,14 +66,9 @@ import java.util.List;
         new Select(QuotePage.sel_quote_paymentTerm_drpdwn ).selectByVisibleText(Payment);
     }
  
-      public void Txt_quoteValidTill(String year,String month,String date){
+      public void Txt_quoteValidTill(){
           QuotePage.clk_QuoteValidTill.click();
-          new Select(QuotePage.sel_year).selectByVisibleText(year);
-          new Select(QuotePage.sel_month).selectByVisibleText(month);
-          driver.findElement(By.linkText(date)).click();
-      
-         
-    	        
+                  
       }
  
       public void sel_QuoteCurrency(int i){
@@ -76,7 +80,7 @@ import java.util.List;
          QuotePage.entr_quoteterms_condition.sendKeys(TermCondition);
     }
  
-      public void clkQuoteSave(){
+      public void clkQuoteSavebtn(){
          QuotePage.clk_quote_save_btn.click();
     }
  
@@ -100,34 +104,37 @@ import java.util.List;
           QuotePage.clk_search_qline_item.click();
     }
  
-      public void selQuoteCurrency(String Currency){
-         new Select(QuotePage.sel_currency_Drpdwn).selectByVisibleText(Currency);
+      public void selQuoteCurrency(int i){
+    	  Select sel = new Select(QuotePage.sel_currency_Drpdwn);
+    	  sel.selectByIndex(i);
         
     }
       public void clkQuoteProductChkbox(){
          QuotePage.clk_All_Product_chkbox.click();
     }
  
-      
-      public void selQuoteProduct(String quoteName,int i) {
- 
-    	  String firstPath= ".//*[@id='QuoteTbl']/tbody/tr[";
+
+      public void selQuoteProduct(String ProductName, int i ) {
+    	  // .//*[@id='ProductTbl']/tbody/tr/td[1]
+    	   String firstPath= ".//*[@id='ProductTbl']/tbody/tr[";
   	      String endPath= "]/td[1]"; 
   	      String  fullpath = firstPath +i+ endPath;
   	       List<String> newList =new ArrayList<>();
-  	       List<WebElement> list = driver.findElements(By.xpath(".//*[@id='ProductTbl']/tbody/tr/td[2]"));
+  	       List<WebElement> list = driver.findElements(By.xpath(".//*[@id='ProductTbl']/tbody/tr/td[3]")); 
+  	        
   	       for(int j=0; j < list.size(); j++)
   	       {
-  	    	  newList.add(list.get(j).getText());
+  	    	 
+  	    	  newList.add(list.get(j).getText());  
   	       } 
-  	     	 if (newList.contains(quoteName)){
-  	     		WebElement checkbox = driver.findElement(By.xpath(fullpath));
+  	       
+  	     	 if (newList.contains(ProductName)){ 
+  	     	WebElement checkbox = driver.findElement(By.xpath(fullpath)); 
   	     		checkbox.click();	
   	     	 }
-      }
-      
-      
-      public void entr_Search_QuoteProductCategory(String Category){
+      }	
+  
+      public void enter_Search_QuoteProductCategory(String Category){
      	 QuotePage.txt_search_product_catgry.sendKeys(Category);
      	 
       }
@@ -142,7 +149,39 @@ import java.util.List;
       public void clkQuoteLineBind(){
           QuotePage.clk_qLineItemBindbtn.click();
     }
- 
+      
+      public void selPriceBook(int i){
+  		Select sel= new Select(OppPage.select_pricebook);
+  		sel.selectByIndex(i);
+     }
+      
+      public void selPriceType(int i){
+  		Select sel = new Select(OppPage.oppLine_PriceType);
+  				sel.selectByIndex(i);
+  	}
+
+  	public void selPackage(int i) {
+  		Select sel =new Select(OppPage.opplinePackage);
+  		sel.selectByIndex(i);
+  	}
+  	
+  	public void enterQuantity(String qty){
+  	   OppPage.txt_qty.sendKeys(qty);
+  	
+  	}
+  	public void selShipping(int i) {
+  		Select sel = new Select(OppPage.oppLineShipping);
+  		sel.selectByIndex(i);
+  	}
+
+  	 public void seltTax(int i) {
+      Select sel =new Select(OppPage.oppLineTax);
+  		sel.selectByIndex(i);
+  	}
+  	 
+  	
+  	
+   
       public void clkQuoteViewPrduct(){
      		QuotePage.clk_view_product.click();
      	}
@@ -321,11 +360,7 @@ import java.util.List;
      	public void clkQuoteReviewAccordion(){
      		QuotePage.clk_review_hitory_accordion.click();
      	}
-     	
-     	public void clkQuote360View(){
-     		QuotePage.clk_360view_accordion.click();
-     	}
-     	
+  
      	public void clkQuoteEmailAccordion(){
      		QuotePage.clk_email_accordion.click();
      	}
@@ -333,56 +368,9 @@ import java.util.List;
      	public void clk_QuoteRecent_Update_Acco(){
      		QuotePage.clk_recentUpdate_accordion.click();
      	}
-    // More Actions and Tool	
      	
-     	public void clkQuoteMoreActionBtn(){
-     		QuotePage.clk_moreaction_drpdwn.click();
-     	}
      	
-     	public void selQuoteMassEdit(String MassEdit){
-     		new Select(QuotePage.sel_quote_massedit).selectByVisibleText(MassEdit);
-     	}
+
      	
-     	public void selQuoteMassDelete(String MassDelete){
-     	   new Select(QuotePage.sel_quote_massdelete).selectByVisibleText(MassDelete);
-     	}
      	
-     	public void selQuoteShareRecord(String ShareRecord){
-     		new Select(QuotePage.sel_quote_sharerecord).selectByVisibleText(ShareRecord);
-     	}
-     	
-     	public void clk_Quotetool(){
-     		QuotePage.clk_tool_drpdwn.click();
-     	}
-     	
-     	public void sel_QuotecustomView(String CustomView){
-     		new Select(QuotePage.sel_quote_customView_drpdwn).selectByVisibleText(CustomView);
-     	}
-     	
-     	public void selFromMoreactions(String actionsName){
-     		if(actionsName.equalsIgnoreCase("Convert")){
-     				
-     		new Select(QuotePage.sel_quote_convert).selectByIndex(1);
-     			
-     		}
-     		else if(actionsName.equalsIgnoreCase("ChangeOwner")){
-     			 new Select(QuotePage.sel_quote_changeowner).selectByIndex(2);
-     				
-     		}
-     		else if(actionsName.equalsIgnoreCase("MassEdit")){
-    			new Select(QuotePage.sel_quote_massedit).selectByIndex(3);
-    			
-     		}
-     		
-     		else if(actionsName.equalsIgnoreCase("MassDelete")){
-   			  new Select(QuotePage.sel_quote_massdelete).selectByIndex(4);
-   				
-     		}
-     		
-     		else{  
-     	        new Select(QuotePage.sel_quote_sharerecord).selectByIndex(5);
-   				
-		}
-     	
-     	}
  }

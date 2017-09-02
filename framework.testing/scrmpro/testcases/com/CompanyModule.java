@@ -1,5 +1,7 @@
 package scrmpro.testcases.com;
 
+import java.io.IOException;
+
 import org.apache.log4j.xml.DOMConfigurator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,7 +12,7 @@ import scrmpro.utility.com.Log;
 
 public class CompanyModule extends CompanyMethods{
   @Test
-  public void UpdateCompanyInformatio() {
+  public void UpdateCompanyInformatio() throws IOException, InterruptedException {
 	  
 	  LoginModule login = new LoginModule();
 
@@ -19,7 +21,7 @@ public class CompanyModule extends CompanyMethods{
 		DOMConfigurator.configure("log.xml");
 		Log.startTestCase("Update Company Information");
 		
-		login.validLogin();
+		login.validLogin("shalini" , "Kaya@1234");
 
 		Log.info("Navigate to Setting");
 		clickSettingtab();

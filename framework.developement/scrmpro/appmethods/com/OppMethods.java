@@ -1,25 +1,23 @@
 package scrmpro.appmethods.com;
 
-import java.awt.RenderingHints.Key;
-import java.util.Iterator;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.StaleElementReferenceException;
+ 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
-import com.thoughtworks.selenium.condition.Condition;
-
-import scrmpro.pom.com.LoginPage;
 import scrmpro.pom.com.OppPage;
 
-public abstract class  OppMethods extends LoginMethods {
 
+public abstract class  OppMethods extends LoginMethods {
+	
+	// CommonMethod cm = new CommonMethod();
+	
+	
 	public void clickOpportunityTab() {
 
 		OppPage.tab_Oppotunity.click();
@@ -44,8 +42,9 @@ public abstract class  OppMethods extends LoginMethods {
 		OppPage.link_prodcutLink.click();
 	}
 
-	public void selectProductsCurrency() {
-		new Select(OppPage.drpdwn_SelectCurrency).selectByIndex(1);
+	public void selectProductsCurrency(int i) {
+		Select sel = new Select(OppPage.drpdwn_SelectCurrency);
+				sel.selectByIndex(i);
 		
 	}
 
@@ -61,8 +60,11 @@ public abstract class  OppMethods extends LoginMethods {
 
 	}
 
-	public void selectPriceBook(){
-		new Select(OppPage.select_pricebook).selectByIndex(1);	
+	public void selectPriceBook(int i){
+		Select sel= new Select(OppPage.select_pricebook);
+		sel.selectByIndex(i);	
+		
+		
 		
 	
 		
@@ -120,6 +122,39 @@ public abstract class  OppMethods extends LoginMethods {
 
 		new Select(OppPage.oppLineTax).selectByIndex(1);
 	}
+	
+	/***************************************************
+	 * @author Shalini Singh
+	 * TestCase Objective : Select Opp
+	 * Date:- 22 November 2017
+   * @throws InterruptedException 
+   * @throws IOException 
+	 ***************************************************/
+	// .//*[@id='OpportunityTbl1']/tbody/tr/td[1]
+	
+	   public void SelOpp(String oppName,int i){	
+     	String firstPath= ".//*[@id='OpportunityTbl1']/tbody/tr[";
+        String endPath= "]/td[1]"; 
+       String  fullpath = firstPath +i+ endPath;
+       List<String> newList =new ArrayList<>();
+       List<WebElement> list = driver.findElements(By.xpath(".//*[@id='OpportunityTbl1']/tbody/tr/td[4]"));
+       for(int j=0; j < list.size(); j++)
+       {
+    	  newList.add(list.get(j).getText());
+       } 
+     	 if (newList.contains(oppName)){
+     		WebElement sel = driver.findElement(By.xpath(fullpath));
+  			sel.click();	 
+     	 }
+     	 
+     	 
+     	 
+     	 
+    	} 
+	
+	   
+	
+	
 	
 
 

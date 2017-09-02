@@ -57,20 +57,26 @@ public class OppPage extends LoginPage{
 	@FindBy(id="PriceBook-selected0")
 	public static WebElement select_pricebook;
 	
-	@FindBy(id="txtTotalOrderQnty0")
-	public static WebElement txt_qty;
-	
 	@FindBy(id="PriceType-selected0")
 	public static WebElement oppLine_PriceType;
 	
 	@FindBy(id="ddlPackage0")
 	public static WebElement opplinePackage;
 	
+	@FindBy(id="txtTotalOrderQnty0")
+	public static WebElement txt_qty;
+	
 	@FindBy(id="ddlShipping0")
 	public static WebElement oppLineShipping;
 	
 	@FindBy(id="ddlTax0")
 	public static WebElement oppLineTax;
+	
+	@FindBy(id="ddlDiscount0")
+	public static WebElement Select_Discount;
+	
+	@FindBy(id="txtLineItemDescription0")
+	public static WebElement Txt_Description;
 	
 	
 	

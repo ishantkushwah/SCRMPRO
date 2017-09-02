@@ -3,6 +3,7 @@
 <suite name="Suite">
 <listeners>
       <listener class-name="scrmpro.utility.com.CustomReporter" />
+  </listeners>
   <test name="Test">
   </test> <!-- Test -->
-</suite> <!-- Suite -->
+ </suite> <!-- Suite -->

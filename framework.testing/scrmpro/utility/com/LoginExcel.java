@@ -12,19 +12,19 @@ public class LoginExcel implements Property{
  public Object[][] getLoginDataForAllRoles() throws Exception {
  
   DataDrivenExcel userData = new DataDrivenExcel(
-    TestSheet, "Sheet1");
+    TestSheet , "login");
  
   ArrayList<Object> dataList = new ArrayList<Object>();
  
-  int i = 1;// excluding header row
+  int i = 0;// excluding header row
   int totalRows = 2;
-  while (i < totalRows) {
+  while (i <= totalRows) {
    System.out.println("loginToAppWithAllRoles : line : " + i);
  
    Object[] dataLine = new Object[2];
    dataLine[0] = userData.getCell(i, 0);
    dataLine[1] = userData.getCell(i, 1);
- 
+  // dataLine[2] = userData.getCell(i, 2);
  
    dataList.add(dataLine);
  
